@@ -32,7 +32,7 @@ To break this down:
 
 The first 2 bytes of this packet are our startSignal. `0DF0` is in little endian order, so it would actually be F00D. This tells us we are seeing the start of a KINP message.
 
-The next 2 bytes are the length, again in little endian. `6000` becomes `00 60` and we convert that from hexadecimal to decimal to see that the length of the payload is 96 bytes. (Only six are shown in the excerpt above.
+The next 2 bytes are the length, again in little endian. `6000` becomes `00 60` and we convert that from hexadecimal to decimal to see that the length of the payload is 96 bytes. (Only six are shown in the excerpt above.)
 
 Everything after that is the payload message which has its own structure.
 
