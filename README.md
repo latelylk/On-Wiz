@@ -74,14 +74,26 @@ Of the files, the only two of interest are `AppStart.dat` and `LocalPackagesList
 
 `LocalPackagesList.txt` is a list of the data your client has downloaded to the GameData folder. It appears to be mostly Zones.
 
-The directories will each be covered in their own section.
+The directories will each be covered in their own sections.
 
 ### What You Need To Know
 
 ### Your Tools
 
 ### Bin
-Binaries for the game here.
+Binaries for the game are installed here.
+
+`WizardClient.log` - Contains tons of useful information from the client. Useful for seeing what the client is up to.
+
+`WizardGraphicalClient.exe` - The main executable for Wizard101. This can be coupled with the arguments I linked to earlier: [WGCArgs.md](WGCArgs.md).
+
+`EmbeddedBrowserConfig.xml` - Not extremely important, but this file contains the links used by the game. If, like me, you hate the browser pop-up that happens after you exit the game, editing this file should disable it. The only problem is this gets rewritten by the patch client every time the game is launched. When trying to find if anybody else had already found the args, I came across only [this thread.](http://www.wizard101central.com/forums/showthread.php?461393-Alright-I-m-new-and-I-need-help) In it, bypassing the patch client is mentioned - I'll update this when I find out how that is done. For now changing this file to only contain the fallback page does nothing, but once the patcher is bypassed this should eliminate the browser pop-up.
+
+`<Objects>
+   <Class Name="class EmbeddedBrowserConfig">
+      <m_sFallbackPage></m_sFallbackPage>	  
+   </Class>
+</Objects>`
 
 ### Data
 GameData
