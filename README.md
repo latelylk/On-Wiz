@@ -89,6 +89,8 @@ Binaries for the game are installed here.
 
 `EmbeddedBrowserConfig.xml` - Not extremely important, but this file contains the links used by the game. If, like me, you hate the browser pop-up that happens after you exit the game, editing this file should disable it. The only problem is this gets rewritten by the patch client every time the game is launched. When trying to find if anybody else had already found the args, I came across only [this thread.](http://www.wizard101central.com/forums/showthread.php?461393-Alright-I-m-new-and-I-need-help) In it, bypassing the patch client is mentioned - I'll update this when I find out how that is done. For now changing this file to only contain the fallback page does nothing, but once the patcher is bypassed this should eliminate the browser pop-up.
 
+* The -L argument appears to bypass the patch client, but further testing needs to be done to confirm
+
 `<Objects>
    <Class Name="class EmbeddedBrowserConfig">
       <m_sFallbackPage></m_sFallbackPage>	  
