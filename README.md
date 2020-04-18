@@ -97,7 +97,7 @@ Binaries for the game are installed here.
    </Class>
 </Objects>`
 
-* [I've created a powershell script which replaces this and (probably?) bypasses the patch client.](NoBrowser.ps1) Initial attempt was to erase this file which didn't work. Another URL stored elsewhere? Setting the fallback page to nothing seems to accomplish the goal so leave this for now.
+* [I've created a powershell script which replaces this and (probably?) bypasses the patch client.](NoBrowser.ps1) Initial attempt was to erase this file which didn't work. Another URL stored elsewhere? Setting the fallback page to nothing seems to accomplish the goal so leave this for now. Note that the script may need to be changed to have the login server for your region (are they regiona?)
 
 ### Data
 GameData
