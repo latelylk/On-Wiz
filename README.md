@@ -15,13 +15,15 @@ More in-depth information about the KingsIsle Networking Protocol (KINP) can be 
 * [Endianness](https://en.wikipedia.org/wiki/Endianness)
   * Know about [little vs big endian](https://www.geeksforgeeks.org/little-and-big-endian-mystery/)
 * [Wireshark](https://www.wireshark.org/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) debugging
 
 ### Your Tools
 * Hex Editor - [HxD](https://mh-nexus.de/en/hxd/) (Free)
 * Packet Analyzer - [Wireshark](https://www.wireshark.org/) (Free)
+* A debugger - [Visual Studio](https://visualstudio.microsoft.com/vs/) (Free)
 
 ### Packets
-A packet is a message sent between the server and client to communicate. Game packets can be divided into two categories: Control Messages and DML Messages. Capturing these packets is done through Wireshark. To limit the packets you'll have to look through I reccomend setting a capture filter: `(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61` - This will limit the traffic to what we want.
+A packet is a message sent between the server and client to communicate. Game packets can be divided into two categories: Control Messages and DML Messages. Capturing these packets is done through Wireshark. To limit the packets you'll have to look through I reccomend setting a capture filter: `(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61` - This will limit the traffic to what we want. Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGC ARGS.md].
 
 #### Packet Framing
 Once you've gotten a packet, it's time to figure out what it does. KINP packets are always framed in the same way. Each packet begins with a 2-byte header "F00D" in little-endian. This is referred to as the *startSignal*. After the *startSignal* comes a 2-byte integer in little-endian referrred to as the *length* which describes the length of the message payload in bytes. Lastly, we get the *payload* sequence, which contains the data for either the control or DML message. Here is a packet I sniffed with Wireshark (shortened as an example):
@@ -59,6 +61,31 @@ The second byte `6F` is our *messageType* - This tells us which message template
 The third and fourth bytes are `5B 00` in little-endian and represent our DML message *length* (including the header bytes). In this case, it's 91 bytes. Everything else in this packet would be data for the GAME message MSG_MARK_LOCATION_RESPONSE. More on serices and their respective messages will be covered later under the "Game Files" section.
 
 #### Control Messages
+--Will come back here as I learn more
 
 ## Game Files
-Everything the client requires to run is stored in the installation directory of the client.
+By default the Wizard101 game files are installed to `C:\ProgramData\KingsIsle Entertainment\Wizard101`. Everything the client requires to run is stored in that installation directory.
+
+In the root of the installation directory there are four folders and 5 files. These folders are `Bin`, `Data`, `PatchClient`, and `PatchInfo`. The 5 files are `AppStart.dat`, `Install Log.txt`, `LocalPackagesList.txt`, `Wiz.ico`, and `Wizard101.exe`.
+
+Of the files, the only two of interest are `AppStart.dat` and `LocalPackagesList.txt`. 
+
+`AppStart.dat` is checked by `Wizard101.exe` to determine where to install the new PatchClient. When debugging, I saw mention of a registry key for this, but have not yet looked into the registry keys created by Wizard101. 
+
+`LocalPackagesList.txt` is a list of the data your client has downloaded to the GameData folder. It appears to be mostly Zones.
+
+The directories will each be covered in their own section.
+
+### What You Need To Know
+
+### Your Tools
+
+### Bin
+Binaries for the game here.
+
+### Data
+GameData
+
+### PatchClient
+
+## Registry Keys (?)
