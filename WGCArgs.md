@@ -6,7 +6,7 @@ Options:
 
 -? Display Help\
 
--L <login server name | IP> <Port>\
+-L <login server name | IP> <Port> -- This skips patcher (?)
 
 -U <user name> <password>
 
