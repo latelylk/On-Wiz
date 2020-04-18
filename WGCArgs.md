@@ -8,7 +8,7 @@ Options:
 
 -L <login server name | IP> <Port> -- This skips patcher (?)
 
--U <user name> <password>
+-U <user name> <password> -- Doesn't appear to work. Need to test more
 
 -C <character name | GID>
 
