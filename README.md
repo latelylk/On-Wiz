@@ -1,3 +1,6 @@
+# **IMPORTANT**
+[Do you have or know anyone who might have an older pc? If so, please try to find old client files for this game! A lot of the information needed can be much more easily accessed through the older clients and would imrpove reverse engineering efforts many times over. Thank you.](https://redd.it/g3z9hv)
+
 # Wizard101 Data Mining
 Whatever your goal is, if you have an interest in what happens behind-the-scenes in Wizard101, this is the place to start. While I don't plan on covering every aspect of the game, I will be covering the essentials. Requirements will be posted by section.
 
