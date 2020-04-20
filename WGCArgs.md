@@ -4,29 +4,29 @@ Usage: WizardGraphicalClient.exe [Options]
 
 Options:
 
--? Display Help\
+-? Display Help
 
--L <login server name | IP> <Port> -- This skips patcher (?)
+-L <login server name | IP> \<Port> -- This skips the patcher by launching directly. The PatchClient calls this argument to launch the game when it is finished.
 
--U <user name> <password> -- Doesn't appear to work. Need to test more
+-U \<user name> \<password> -- Doesn't work. Verification needed somewhere?
 
 -C <character name | GID>
 
 -Z <zone server name | IP>
 
--T <Zone Name> - Test Local Zone
+-T \<Zone Name> - Test Local Zone
 
--E <Equipment ID> - Equip this item on local player.  Must be used with -T
+-E \<Equipment ID> - Equip this item on local player.  Must be used with -T
 
--R <Zone Name> - Run Zone
+-R \<Zone Name> - Run Zone
 
--R2 <Zone Name> <user_id> - Run Zone as secondary test player user_id (2..n), connecting to existing -R zoneserver
+-R2 \<Zone Name> <user_id> - Run Zone as secondary test player user_id (2..n), connecting to existing -R zoneserver
 
--D <data root dir>
+-D \<data root dir>
 
--S <script name>
+-S \<script name>
 
--SR <screen resolution> - i.e. 1280x1024
+-SR \<screen resolution> - i.e. 1280x1024
 
 -K <Enable Script Debugger (0|1)>
 
@@ -38,17 +38,17 @@ Options:
 
 -EF_UNDERFLOW - Enable underflow detection
 
--G <log file>
+-G \<log file>
 
 -P <Patching Enabled (0|1)>
 
 -M <Maintenance Mode (0|1)>
 
--X <Dump Classes to Filename>
+-X \<Dump Classes to Filename>
 
--O <Log all Resource requests>
+-O \<Log all Resource requests>
 
--A <locale>
+-A \<locale>
 
 -UN <Force Unique Character Names(0|1)>
 
