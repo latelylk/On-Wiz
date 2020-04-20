@@ -12,6 +12,12 @@ The Wizard101 client requires an active connection to a server to load the game.
 
 More in-depth information about the KingsIsle Networking Protocol (KINP) can be found in the [libki project by Joshsora](https://github.com/Joshsora/libki/wiki/Introduction), without which *many* more hours would have been spent researching.
 
+### Login Servers
+
+Live Realm (US) - login.us.wizard101.com
+
+Test Realm (US) - testlogin.us.wizard101.com
+
 ### What You Need To Know
 
 * [Hex editing](https://en.wikipedia.org/wiki/Hex_editor)
@@ -32,7 +38,11 @@ More in-depth information about the KingsIsle Networking Protocol (KINP) can be 
 
 ### Packets
 
-A packet is a message sent between the server and client to communicate. Game packets can be divided into two categories: Control Messages and DML Messages. Capturing these packets is done through Wireshark. To limit the packets you'll have to look through I recommend setting a capture filter: `(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61` - This will limit the traffic to what we want. Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](WGCArgs.md).
+A packet is a message sent between the server and client to communicate. Game packets can be divided into two categories: Control Messages and DML Messages. Capturing these packets is done through Wireshark. To limit the packets you'll have to look through I recommend setting a capture filter: 
+
+​	`(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61`
+
+This will limit the traffic to what we want (Wizard101 communicates from 165.193.X.X addresses & ports in the 12000 range. All data packets will be 61 bytes or larger.) Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](WGCArgs.md).
 
 #### Packet Framing
 
