@@ -1,15 +1,19 @@
 # **IMPORTANT**
+
 [Do you have or know anyone who might have an older pc? If so, please try to find old client files for this game! A lot of the information needed can be much more easily accessed through the older clients and would imrpove reverse engineering efforts many times over. Thank you.](https://redd.it/g3z9hv)
 
 # Wizard101 Data Mining
+
 Whatever your goal is, if you have an interest in what happens behind-the-scenes in Wizard101, this is the place to start. While I don't plan on covering every aspect of the game, I will be covering the essentials. Requirements will be posted by section.
 
 ## W101 Network Communications
+
 The Wizard101 client requires an active connection to a server to load the game. This section will cover how the client communicates with the server.
 
 More in-depth information about the KingsIsle Networking Protocol (KINP) can be found in the [libki project by Joshsora](https://github.com/Joshsora/libki/wiki/Introduction), without which *many* more hours would have been spent researching.
 
 ### What You Need To Know
+
 * [Hex editing](https://en.wikipedia.org/wiki/Hex_editor)
   * Decimal
   * Hexadecimal
@@ -21,15 +25,18 @@ More in-depth information about the KingsIsle Networking Protocol (KINP) can be 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) debugging
 
 ### Your Tools
+
 * Hex Editor - [HxD](https://mh-nexus.de/en/hxd/) (Free)
 * Packet Analyzer - [Wireshark](https://www.wireshark.org/) (Free)
 * A debugger - [Visual Studio](https://visualstudio.microsoft.com/vs/) (Free)
 
 ### Packets
-A packet is a message sent between the server and client to communicate. Game packets can be divided into two categories: Control Messages and DML Messages. Capturing these packets is done through Wireshark. To limit the packets you'll have to look through I reccomend setting a capture filter: `(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61` - This will limit the traffic to what we want. Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](WGCArgs.md).
+
+A packet is a message sent between the server and client to communicate. Game packets can be divided into two categories: Control Messages and DML Messages. Capturing these packets is done through Wireshark. To limit the packets you'll have to look through I recommend setting a capture filter: `(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61` - This will limit the traffic to what we want. Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](WGCArgs.md).
 
 #### Packet Framing
-Once you've gotten a packet, it's time to figure out what it does. KINP packets are always framed in the same way. Each packet begins with a 2-byte header "F00D" in little-endian. This is referred to as the *startSignal*. After the *startSignal* comes a 2-byte integer in little-endian referrred to as the *length* which describes the length of the message payload in bytes. Lastly, we get the *payload* sequence, which contains the data for either the control or DML message. Here is a packet I sniffed with Wireshark (shortened as an example):
+
+Once you've gotten a packet, it's time to figure out what it does. KINP packets are always framed in the same way. Each packet begins with a 2-byte header "F00D" in little-endian. This is referred to as the *startSignal*. After the *startSignal* comes a 2-byte integer in little-endian referred to as the *length* which describes the length of the message payload in bytes. Lastly, we get the *payload* sequence, which contains the data for either the control or DML message. Here is a packet I sniffed with Wireshark (shortened as an example):
 
 `0DF0600000000000056f5B00`
 
@@ -42,6 +49,7 @@ The next 2 bytes are the *length*, again in little endian. `6000` becomes `00 60
 Everything after that is the *payload* message which has its own structure.
 
 ##### Payload Structure
+
 The payload of this packet is `00000000056F5B00` which breaks down as follows:
 
 The first byte `00` denotes *isControl* - Whether this is a control message or a DML message. (A value of 0 denotes DML)
@@ -53,6 +61,7 @@ The third and fourth bytes, `00 00`, are *unknown* - having only ever been obser
 Everything following this is data that is interpreted based on whether this is a Control or DML message. With the *isControl* sent as 00, the message is not a control message, so it must be a DML message.
 
 #### DML Messages
+
 DML message are framed similarly to the initial packet. The header consists of a 1 Byte *serviceId* (svcid) which determines which service the message is meant for. Then comes a 1 Byte *messageType* (msgid) which determines which message template from the previously determined service is used. Lastly we get 2 bytes in little-endian representing *length* which indicate the length of the DML message (including this header, which is 4 bytes). Everything after this header will be data for the service:message being called.
 
 The remainder of our (shortened) packet is this: `056F5B00`
@@ -61,12 +70,14 @@ The first byte `05` is our *serviceId* - This tells us which service the message
 
 The second byte `6F` is our *messageType* - This tells us which message template from the service is used. In this case, it's GAME message 111, or "MSG_MARK_LOCATION_RESPONSE".
 
-The third and fourth bytes are `5B 00` in little-endian and represent our DML message *length* (including the header bytes). In this case, it's 91 bytes. Everything else in this packet would be data for the GAME message MSG_MARK_LOCATION_RESPONSE. More on serices and their respective messages will be covered later under the "Game Files" section.
+The third and fourth bytes are `5B 00` in little-endian and represent our DML message *length* (including the header bytes). In this case, it's 91 bytes. Everything else in this packet would be data for the GAME message MSG_MARK_LOCATION_RESPONSE. More on services and their respective messages will be covered later under the "Game Files" section.
 
 #### Control Messages
+
 --Will come back here as I learn more
 
 ## Game Files
+
 By default the Wizard101 game files are installed to `C:\ProgramData\KingsIsle Entertainment\Wizard101`. Everything the client requires to run is stored in that installation directory.
 
 In the root of the installation directory there are four folders and 5 files. These folders are `Bin`, `Data`, `PatchClient`, and `PatchInfo`. The 5 files are `AppStart.dat`, `Install Log.txt`, `LocalPackagesList.txt`, `Wiz.ico`, and `Wizard101.exe`.
@@ -84,25 +95,29 @@ The directories will each be covered in their own sections.
 ### Your Tools
 
 ### Bin
+
 Binaries for the game are installed here.
 
 `WizardClient.log` - Contains tons of useful information from the client. Useful for seeing what the client is up to.
 
 `WizardGraphicalClient.exe` - The main executable for Wizard101. This can be coupled with the arguments I linked to earlier: [WGCArgs.md](WGCArgs.md).
 
-`EmbeddedBrowserConfig.xml` - Not extremely important, but this file contains the links used by the game. If, like me, you hate the browser pop-up that happens after you exit the game, editing this file should disable it. The only problem is this gets rewritten by the patch client every time the game is launched. When trying to find if anybody else had already found the args, I came across only [this thread.](http://www.wizard101central.com/forums/showthread.php?461393-Alright-I-m-new-and-I-need-help) In it, bypassing the patch client is mentioned - I'll update this when I find out how that is done. For now changing this file to only contain the fallback page does nothing, but once the patcher is bypassed this should eliminate the browser pop-up.
+`EmbeddedBrowserConfig.xml` - Not extremely important, but this file contains the links used by the game. If, like me, you hate the browser pop-up that happens after you exit the game, editing this file should disable it. ~~The only problem is this gets rewritten by the PatchClient every time the game is launched. When trying to find if anybody else had already found the arguments for Wizard101, I came across only [this thread.](http://www.wizard101central.com/forums/showthread.php?461393-Alright-I-m-new-and-I-need-help) In it, bypassing the PatchClient is mentioned - I'll update this when I find out how that is done. For now changing this file to only contain the fallback page does nothing, but once the patcher is bypassed this should eliminate the browser pop-up.~~
 
-* The -L argument appears to bypass the patch client, but further testing needs to be done to confirm
+* The -L argument appears to bypass the PatchClient~~, but further testing needs to be done to confirm~~. It is 100% bypassed because the PatchClient is only called by the launcher, not WizardGraphicalClient.
 
-`<Objects>
-   <Class Name="class EmbeddedBrowserConfig">
-      <m_sFallbackPage></m_sFallbackPage>	  
-   </Class>
-</Objects>`
+* [I've created a PowerShell script which replaces this and ~~(probably?)~~ bypasses the PatchClient.](NoBrowser.ps1) Initial attempt was to erase this file which didn't work. Another URL stored elsewhere? Setting the fallback page to nothing seems to accomplish the goal so leave this for now. ~~Note that the script may need to be changed to have the login server for your region (are they regional?)~~. Servers are indeed regional with EU servers being hosted by [GameForge](https://en.wizard101.gameforge.com/wizard101/en/game) - I do not know if this script will work on the GameForge client.
 
-* [I've created a powershell script which replaces this and (probably?) bypasses the patch client.](NoBrowser.ps1) Initial attempt was to erase this file which didn't work. Another URL stored elsewhere? Setting the fallback page to nothing seems to accomplish the goal so leave this for now. Note that the script may need to be changed to have the login server for your region (are they regiona?)
+  * The PowerShell script replaces `EmbeddedBrowserConfig.xml` with this block:
+
+    `<Objects>
+       <Class Name="class EmbeddedBrowserConfig">
+          <m_sFallbackPage></m_sFallbackPage>	  
+       </Class>
+    </Objects>`
 
 ### Data
+
 GameData
 
 ### PatchClient
