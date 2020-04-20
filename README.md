@@ -126,6 +126,8 @@ Binaries for the game are installed here.
        </Class>
     </Objects>`
 
+`PatchConfig.xml` - Just gives some basic info for what the PatchClient is supposed to do once it's done updating. Apparently there is a `SilentMetricsURL` that the game uses at [wizard101.com/static/noop.html](https://www.wizard101.com/static/noop.html). I wonder what data it collects?
+
 ### Data
 
 GameData
