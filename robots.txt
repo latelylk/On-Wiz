@@ -1,4 +1,4 @@
-### Saved on 4/20/2020
+### Saved from https://www.wizard101.com/robots.txt on 4/20/2020
 
 User-Agent: *
 
