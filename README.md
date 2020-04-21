@@ -136,3 +136,5 @@ GameData
 ### PatchClient
 
 ## Registry Keys (?)
+
+## Bans
