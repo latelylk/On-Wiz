@@ -24,6 +24,7 @@ Test Realm (US) - testlogin.us.wizard101.com
   * Decimal
   * Hexadecimal
   * [Binary](https://en.wikipedia.org/wiki/Finger_binary)
+  * [This is a good video for learning.](https://youtu.be/nA7o5kmH6wg) Bonus: It shows you how to use your computer's calculator to do the conversions.
   * Be able to convert between Decimal/Hexadecimal/Binary
 * [Endianness](https://en.wikipedia.org/wiki/Endianness)
   * Know about [little vs big endian](https://www.geeksforgeeks.org/little-and-big-endian-mystery/)
