@@ -1,7 +1,3 @@
-# **IMPORTANT**
-
-[Do you have or know anyone who might have an older pc? If so, please try to find old client files for this game! A lot of the information needed can be much more easily accessed through the older clients and would imrpove reverse engineering efforts many times over. Thank you.](https://redd.it/g3z9hv)
-
 # Wizard101 Data Mining
 
 Whatever your goal is, if you have an interest in what happens behind-the-scenes in Wizard101, this is the place to start. While I don't plan on covering every aspect of the game, I will be covering the essentials. Requirements will be posted by section.
@@ -134,6 +130,22 @@ Binaries for the game are installed here.
 GameData
 
 ### PatchClient
+
+
+
+## Internal Tools
+
+* Kobol
+
+The first mention of `Kobol` I found was on the [portfolio website](https://kryskozlowski.myportfolio.com/wizard101) of [Krystian Kozlowski](https://www.linkedin.com/in/kryskozlowski), a former sound designer for KingsIsle (2017/18). He lists `Kobol` as an engine used by the studio. It is again mentioned on the [LinkedIn](https://www.linkedin.com/in/meaganquinn) profile of another KI employee, [Meagan Quinn](https://www.freekigames.com/girl-gamers-meagan) and on the [LinkedIn](https://www.linkedin.com/in/nbmayes) profile of former Senior Game Designer for KI, [Nathan Mayes](https://www.dignitymemorial.com/obituaries/austin-tx/nathan-mayes-7944261) (May he rest in peace.) 
+
+`Kobol` is, from what I've found, a proprietary KingsIsle tool for zone management. What extent of power this tool has is unknown.
+
+[This thread](https://www.playerup.com/threads/comissioning-someone-to-retrieve-files-from-company-in-round-rock-tx.4110102/#post-10622529) from the PlayerUp forum describes contacting an employee who spilled some info on `Kobol` as well as a previously unknown 3DS Max plugin called `KI Tools`. If you have any more information regarding these tools or additional tools in the KI vault, please create an issue with a way to contact you.
+
+* KI Tools
+
+No information is known about this tool at this time.
 
 ## Registry Keys (?)
 
