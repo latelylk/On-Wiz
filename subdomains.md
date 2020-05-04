@@ -20,3 +20,4 @@
 * testpatch.wizard101.com
 * [versionec.us.wizard101.com](http://versionec.us.wizard101.com/)
 * [testversionec.us.wizard101.com](http://testversionec.us.wizard101.com/)
+* https://secure.kingsisle.com/
