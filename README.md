@@ -1,3 +1,8 @@
+# Important News
+
+## As of now, all information below & all future information will be uploaded in wiki-format to https://latelylk.github.io/On-Wiz/
+## This will allow for better organization, better distribution and increased readability.
+
 # Wizard101 Data Mining
 
 Whatever your goal is, if you have an interest in what happens behind-the-scenes in Wizard101, this is the place to start. While I don't plan on covering every aspect of the game, I will be covering the essentials. Requirements will be posted by section.
@@ -39,7 +44,7 @@ A packet is a message sent between the server and client to communicate. Game pa
 
 	(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61
 
-This will limit the traffic to what we want (Wizard101 communicates from 165.193.X.X addresses & ports in the 12000 range. All data packets will be 61 bytes or larger.) Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](WGCArgs.md).
+This will limit the traffic to what we want (Wizard101 communicates from 165.193.X.X addresses & ports in the 12000 range. All data packets will be 61 bytes or larger.) Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](Client/WGCArgs.md).
 
 #### Packet Framing
 
@@ -107,13 +112,13 @@ Binaries for the game are installed here.
 
 `WizardClient.log` - Contains tons of useful information from the client. Useful for seeing what the client is up to.
 
-`WizardGraphicalClient.exe` - The main executable for Wizard101. This can be coupled with the arguments I linked to earlier: [WGCArgs.md](WGCArgs.md).
+`WizardGraphicalClient.exe` - The main executable for Wizard101. This can be coupled with the arguments I linked to earlier: [WGCArgs.md](Client/WGCArgs.md).
 
 `EmbeddedBrowserConfig.xml` - Not extremely important, but this file contains the links used by the game. If, like me, you hate the browser pop-up that happens after you exit the game, editing this file should disable it. ~~The only problem is this gets rewritten by the PatchClient every time the game is launched. When trying to find if anybody else had already found the arguments for Wizard101, I came across only [this thread.](http://www.wizard101central.com/forums/showthread.php?461393-Alright-I-m-new-and-I-need-help) In it, bypassing the PatchClient is mentioned - I'll update this when I find out how that is done. For now changing this file to only contain the fallback page does nothing, but once the patcher is bypassed this should eliminate the browser pop-up.~~ This thread is interestingly made by a user called Coridex73, who has shown up in many searches for Wizard101 information. They were the only person I could find who was actively developing and selling cheats for the game, but they've since disappeared. Do you know anything about them?
 
 * The -L argument appears to bypass the PatchClient ~~, but further testing needs to be done to confirm~~. It is 100% bypassed because the PatchClient is only called by the launcher, not WizardGraphicalClient.
 
-* [I've created a PowerShell script which replaces this and ~~(probably?)~~ bypasses the PatchClient.](NoBrowser.ps1) Initial attempt was to erase this file which didn't work. Another URL stored elsewhere? Setting the fallback page to nothing seems to accomplish the goal so leave this for now. ~~Note that the script may need to be changed to have the login server for your region (are they regional?)~~. Servers are indeed regional with EU servers being hosted by [GameForge](https://en.wizard101.gameforge.com/wizard101/en/game) - I do not know if this script will work on the GameForge client.
+* [I've created a PowerShell script which replaces this and ~~(probably?)~~ bypasses the PatchClient.](Scripts/NoBrowser.ps1) Initial attempt was to erase this file which didn't work. Another URL stored elsewhere? Setting the fallback page to nothing seems to accomplish the goal so leave this for now. ~~Note that the script may need to be changed to have the login server for your region (are they regional?)~~. Servers are indeed regional with EU servers being hosted by [GameForge](https://en.wizard101.gameforge.com/wizard101/en/game) - I do not know if this script will work on the GameForge client.
 
   * The PowerShell script replaces `EmbeddedBrowserConfig.xml` with this block:
 
