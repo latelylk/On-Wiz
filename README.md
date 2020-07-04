@@ -1,6 +1,6 @@
 # Important News
 
-## As of now, all information below & all future information will be uploaded in wiki-format to <a href="https://latelylk.github.io/On-Wiz/#!index.md" target="_blank">https://latelylk.github.io/On-Wiz/</a>
+## As of now, all information below & all future information will be uploaded in wiki-format to https://latelylk.github.io/On-Wiz/#!index.md
 ## This will allow for better organization, better distribution and increased readability.
 
 # Wizard101 Data Mining
