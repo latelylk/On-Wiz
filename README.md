@@ -1,6 +1,6 @@
 # Important News
 
-## As of now, all information below & all future information will be uploaded in wiki-format to <a href="https://ethankrein.github.io/On-Wiz/" target="_blank">https://ethankrein.github.io/On-Wiz/</a>
+## As of now, all information below & all future information will be uploaded in wiki-format to <a href="https://ethankrein.github.io/On-Wiz/" target="_blank">a Github Pages site.</a>
 ## This will allow for better organization, better distribution and increased readability.
 
 # Wizard101 Data Mining
