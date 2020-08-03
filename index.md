@@ -39,7 +39,7 @@ A packet is a message sent between the server and client to communicate. Game pa
 
 	(src net 165.193.0.0/16 or dst net 165.193.0.0/16) and greater 61
 
-This will limit the traffic to what we want (Wizard101 communicates from 165.193.X.X addresses & ports in the 12000 range. All data packets will be 61 bytes or larger.) Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](Client/WGCArgs.md).
+This will limit the traffic to what we want (Wizard101 communicates from 165.193.X.X addresses & ports in the 12000 range. All data packets will be 61 bytes or larger.) Additional information on client-server packet communication can be gathered by opening the WizardGraphicalClient.exe located in the game's bin folder through the Visual Studio debugger. Additional arguments that can be passed to WizardGraphicalClient.exe can be found in [WGCArgs.md](/Client/WGCArgs.md).
 
 #### Packet Framing
 
