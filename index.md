@@ -1,10 +1,10 @@
 # Wizard101 Data Mining
 
-# Important News
-
-## On November 18, 2020 Kingsisle pushed Karamelle to the live realm in `V_r692052.Wizard_1_440`. Unfortunately for us, this revision marks the introduction of encryption to packets containing messages from the GAME service. The below information is not outdated per se, but it is now behind encryption. Fortunately for us, said encryption is.. weak to say the least. GAME service packets are still readable simply by shifting until you find the F00D startsignal.
-
 Whatever your goal is, if you have an interest in what happens behind-the-scenes in Wizard101, this is the place to start. While I don't plan on covering every aspect of the game, I will be covering the essentials. Requirements will be posted by section.
+
+## Important News
+
+On November 18, 2020 Kingsisle pushed Karamelle to the live realm in `V_r692052.Wizard_1_440`. Unfortunately for us, this revision marks the introduction of encryption to packets containing messages from the GAME service. The below information is not outdated per se, but it is now behind encryption. Fortunately for us, said encryption is.. weak to say the least. GAME service packets are still readable simply by shifting until you find the F00D startsignal.
 
 ## W101 Network Communications
 
