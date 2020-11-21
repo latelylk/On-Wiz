@@ -1,6 +1,6 @@
 # Important News
 
-## On November 18, 2020 Kingsisle pushed Karamelle to the live realm in `V_r692052.Wizard_1_440`. Unfortunately for us, this revision marks the introduction of encryption to packets containing messages from the GAME service. The below information is not outdated per se, but it is now behind encryption. Fortunately for us, said encryption is.. weak to say the least. GAME service packets are still readable simply by shifting until you find the F00D startsignal.
+## On November 18, 2020 Kingsisle pushed Karamelle to the live realm in `V_r692052.Wizard_1_440`. Unfortunately for us, this revision marks the introduction of encryption to packets containing messages from the GAME service. The below information is not outdated per se, but it is now behind encryption. GAME service packets are still the same underneath, though they now require decryption to read.
 
 ## As of now, all information below & all future information will be uploaded in wiki-format to https://ethankrein.github.io/On-Wiz/#!index.md
 ## This will allow for better organization, better distribution and increased readability.
