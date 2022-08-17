@@ -76,7 +76,7 @@ Everything following this is data that is interpreted based on whether this is a
 
 #### DML Messages
 
-DML message are framed similarly to the initial packet. The header consists of a 1 Byte *serviceId* (svcid) which determines which service the message is meant for. Then comes a 1 Byte *messageType* (msgid) which determines which message template from the previously determined service is used. Lastly we get 2 bytes in little-endian representing *length* which indicate the length of the DML message (including this header, which is 4 bytes). Everything after this header will be data for the service:message being called.
+DML message are framed similarly to the initial packet. The header consists of a 1 Byte *serviceId* (svcid) which determines which service the message is meant for. Then comes a 1 Byte *messageType* (msgid) which determines which message template from the previously determined service is used. Lastly we get 2 bytes in little-endian representing *length* which indicate the length of the [DML message](https://www.scaler.com/topics/difference-between-ddl-and-dml/) (including this header, which is 4 bytes). Everything after this header will be data for the service:message being called.
 
 The remainder of our (shortened) packet is this: `056F5B00`
 
